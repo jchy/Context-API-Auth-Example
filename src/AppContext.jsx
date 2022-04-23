@@ -3,10 +3,7 @@ import { createContext, useContext, useState } from "react";
 export const AppContext = createContext();
 const AppContextProvider = ({ children }) => {
   let authUser = JSON.parse(localStorage.getItem("auth"));
-
-  if (authUser) {
-    authUser = authUser;
-  } else {
+  if (!authUser) {
     authUser = false;
   }
   const [auth, setAuth] = useState(authUser);
